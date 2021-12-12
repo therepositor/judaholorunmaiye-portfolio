@@ -24,9 +24,7 @@ const openMenu = (e) => {
     }
     
 }
-const enlargeImage = (e, index) => {
-    console.log(e, 'enlarged!!', index)
-}
+
 const closeMenu = (e) => {
     console.log(e, 'close menu!!')
     menuOptionsContainer.style.display = 'none';
@@ -34,6 +32,20 @@ const closeMenu = (e) => {
 }
 menuButton.addEventListener('click', openMenu)
 closeButton.addEventListener('click', closeMenu)
-images.forEach(element => {
-    element.addEventListener('click', enlargeImage)
-});
+
+window.onload = function()  {
+    const modal = document.getElementById('modal');
+    let modalContent = document.getElementById('modal-content');
+    images.forEach(element => {
+        element.addEventListener('click', function () {
+            modal.style.display = 'block';
+            modalContent.src = this.src
+        })
+    })
+    
+    const closeModalButton = document.getElementById('close-modal-button');
+    closeModalButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+    })
+
+}
