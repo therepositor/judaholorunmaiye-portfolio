@@ -264,13 +264,15 @@ header .logo a:hover {
 }
 .wrapper .gallery-container .cards  {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     padding: 2rem 1rem;
     width: 90%;
     overflow-y: scroll;
     height: calc(100vh - 70px - 3rem);
     align-items: center;
     justify-content: flex-start;
+    position: relative;
 }
 .wrapper .gallery-container .cards::-webkit-scrollbar {
     display: none;
@@ -278,12 +280,87 @@ header .logo a:hover {
 .wrapper .gallery-container .cards .card {
     display: flex;
     margin-bottom: 2rem;
+    padding-left: 0.3rem;
+    
 }
 .wrapper .gallery-container .cards .card img    {
-    height: 230px;
-    width: 225px;
+    height: 50px;
+    width: 70px;
     object-fit: contain;
     border-radius: 5px;
+    cursor: pointer;
+}
+/* .wrapper .gallery-container .cards .portrait {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} */
+.wrapper .gallery-container .modal  {
+    display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9);
+}
+.wrapper .gallery-container .modal .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+.wrapper .gallery-container .modal .modal-content {  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+@-webkit-keyframes zoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+  
+  @keyframes zoom {
+    from {transform: scale(0.1)} 
+    to {transform: scale(1)}
+}
+  
+  
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #9388A2;
+    font-size: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+    padding: 0.3rem;
+    border: 2px solid #9388A2;
+} 
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+.wrapper .gallery-container .cards .card img:active {
+    border: 1px solid #ffffff;
+}
+.wrapper .gallery-container .cards .portrait img {
+    object-fit: cover;
+    object-position: top;
+}
+.wrapper .gallery-container .cards .card img:hover{
+    opacity: 0.5;
+    border: 1px solid #ffffff;
 }
 .wrapper .gallery-container .socials    {
     display: flex;
@@ -332,8 +409,8 @@ header .logo a:hover {
         margin: 1rem;
     }
     .wrapper .gallery-container .cards .card img    {
-        height: 280px;
-        width: 280px;  
+        height: 100px;
+        width: 140px;  
     }
     .wrapper .gallery-container {
         height: calc(100vh - 51px);
@@ -355,7 +432,7 @@ header .logo a:hover {
         display: flex;
         flex-direction: column;
         width: 40%;
-        padding-top: 10rem;
+        padding-top: 20%;
     }
     .wrapper .landing-page .banner h2 {
         font-size: 2.5rem;
@@ -376,7 +453,7 @@ header .logo a:hover {
         justify-content: center;
     }
     .wrapper .gallery-container .cards .card img    {
-        height: 300px;
+        height: 220px;
         width: 300px; 
     }
     .wrapper .contact {
